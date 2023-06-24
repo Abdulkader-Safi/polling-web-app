@@ -51,9 +51,14 @@ def create_poll():
 
 @app.route("/vote/<id>/<option>")
 def vote(id, option):
-    polls_db.at[int(id), "votes"+str(option)] += 1
-    polls_db.to_csv("polls.csv")
-    return redirect(url_for("polls", id=id ))
+    if request.cookies.get(f"vote_{id}_cookie") is None:
+        polls_db.at[int(id), "votes"+str(option)] += 1
+        polls_db.to_csv("polls.csv")
+        response = make_response(redirect(url_for("polls", id=id)))
+        response.set_cookie(f"vote_{id}_cookie", str(option))
+        return response
+    else:
+      return "<h1>Can not vote more then once</h1>"
 
 
 if __name__ == "__main__":
