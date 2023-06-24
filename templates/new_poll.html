@@ -10,22 +10,22 @@
     <form action="{{ url_for('create_poll') }}" method="post">
       <label for="poll">
         Poll Text:
-        <input type="text" name="poll" placeholder="Poll Text" />
+        <input type="text" id="poll" name="poll" placeholder="Poll Text" required />
       </label>
       <br />
       <label for="option1">
         Option1 Text:
-        <input type="text" id="option1" name="option1" placeholder="Option1 Text" />
+        <input type="text" id="option1" name="option1" placeholder="Option1 Text" required />
       </label>
       <br />
       <label for="option2">
         Option2 Text:
-        <input type="text" id="option2" name="option2" placeholder="Option2 Text" />
+        <input type="text" id="option2" name="option2" placeholder="Option2 Text" required />
       </label>
       <br />
       <label for="option3">
         Option3 Text:
-        <input type="text" id="option3" name="option3" placeholder="Option3 Text" />
+        <input type="text" id="option3" name="option3" placeholder="Option3 Text" required />
       </label>
       <br />
       <input type="submit" value="Create" />
