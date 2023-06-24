@@ -58,7 +58,7 @@ def vote(id, option):
         response.set_cookie(f"vote_{id}_cookie", str(option))
         return response
     else:
-      return "<h1>Can not vote more then once</h1>"
+        return "<h1>Can not vote more then once</h1>"
 
 
 if __name__ == "__main__":
